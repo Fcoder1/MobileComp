@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MobileComp: Real-Time Full Projector Compensation on Mobile Devices</title>
+  <meta name="description" content="Real-time full projector compensation on a smartphone. Explore the MobileComp paper, camera captures, method and on-device results.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="mark.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css"><script src="app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-menu">
+  <details id="contents"><summary>On this page</summary>
+    <nav aria-label="Page contents">
+      <a href="#top">Paper and supplement</a>
+      <a href="#abstract">Abstract</a>
+      <a href="#captures">Camera-captured results</a>
+      <a href="#method">Method</a>
+      <a href="#performance">On-device performance</a>
+    </nav>
+  </details>
+</header>
+<main id="main">
+  <header class="publication" id="top">
+    <h1>MobileComp: <span class="term">Real-Time</span> Full Projector Compensation on Mobile Devices</h1>
+    <p class="authors">Anonymous authors</p>
+    <div class="resources">
+      <a href="assets/mobilecomp-manuscript.pdf"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper</a>
+      <a href="assets/mobilecomp-supplement.pdf"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 3h12v15H8z M4 7v14h12 M11 8h6 M11 12h6"/></svg>Supplementary</a>
+    </div>
+  </header>
+
+  <figure class="teaser wide">
+    <div class="teaser-media">
+      <div class="frame bench"><img src="assets/setup.jpg" alt="A projector and smartphone face a painted projection surface."><span>Physical setup</span></div>
+      <div class="frame"><img src="assets/desired.jpg" alt="Desired animation frame before projection."><span>Desired frame</span></div>
+      <div class="frame"><img src="assets/input.jpg" alt="Projector input adjusted to counteract the surface texture."><span>Projector input</span></div>
+      <div class="frame"><img src="assets/capture.jpg" alt="Camera capture of the corrected projection."><span>Camera capture</span></div>
+    </div>
+    <figcaption><strong>MobileComp</strong> adjusts each video frame for the geometry and colour of a textured surface, reaching <strong>72.30 FPS</strong> on a Xiaomi 13 Pro.</figcaption>
+  </figure>
+
+  <section class="band tint" id="abstract" aria-labelledby="abstract-title">
+    <div class="prose"><h2 id="abstract-title">Abstract</h2>
+      <p>Projecting an image onto a nonplanar, textured surface changes both its shape and its colour. Full projector compensation modifies the projector input so that the captured projection resembles the desired image. Existing learning-based methods typically require setup-specific training on a desktop GPU and are computationally expensive to run on a smartphone.</p>
+      <p>MobileComp prepares a compact model on a desktop GPU and performs geometric correction and photometric compensation on the phone. Its setup-independent variant, SI-MobileComp, uses shared pretrained weights and initializes each new setup on the phone. Both methods overlap CPU frame preparation with inference on the phone’s neural processing unit. Across eight target setups, they retain competitive camera-captured image quality and reach 72.30 and 64.76 FPS, respectively, on a Xiaomi 13 Pro. Three desktop-oriented baselines each run below 1 FPS on the same device.</p>
+    </div>
+  </section>
+
+  <section class="band" id="captures" aria-labelledby="captures-title">
+    <div class="wide"><h2 id="captures-title">Camera-Captured Results</h2>
+      <p class="intro">Select a scene and drag the divider to compare the uncompensated and compensated projections. The reference images show the desired frame and the bare surface.</p>
+<div class="viewer">
+  <div class="scene-list"><h3>Choose a scene</h3><div id="scene-buttons" class="scene-buttons" role="group" aria-label="Scene">
+    <button data-scene="textile" aria-pressed="true"><img src="assets/textile-desired.jpg" alt="">Still life <span>01</span></button>
+    <button data-scene="storefront" aria-pressed="false"><img src="assets/storefront-desired.jpg" alt="">Storefront <span>02</span></button>
+    <button data-scene="market" aria-pressed="false"><img src="assets/market-desired.jpg" alt="">Market <span>03</span></button>
+    <button data-scene="interior" aria-pressed="false"><img src="assets/interior-desired.jpg" alt="">Interior <span>04</span></button></div>
+    <div class="choice"><label for="method-choice">Compensation method</label><select id="method-choice"><option value="mobile">MobileComp</option><option value="si">SI-MobileComp</option></select></div>
+  </div>
+  <figure class="comparison"><div class="wipe" id="wipe">
+    <img id="after" class="full" src="assets/textile-mobile.jpg" alt="Still life, compensated camera capture"><img id="before" class="full before" src="assets/textile-before.jpg" alt="Still life, uncompensated camera capture">
+    <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
+    <input type="range" id="split" min="0" max="100" value="50" aria-label="Percentage of uncompensated camera capture visible" aria-valuetext="50 percent uncompensated">
+  </div><figcaption><span>Uncompensated</span><span id="after-caption">MobileComp</span></figcaption></figure>
+  <div class="references"><figure><img id="desired" src="assets/textile-desired.jpg" alt="Desired still life frame"><figcaption>Desired frame</figcaption></figure><figure><img id="surface" src="assets/textile-surface.jpg" alt="Bare projection surface"><figcaption>Projection surface</figcaption></figure></div>
+</div><p id="scene-status" class="sr-only" role="status"></p>
+
+    </div>
+  </section>
+
+  <section class="band tint" id="method" aria-labelledby="method-title">
+    <div class="wide"><h2 id="method-title">Method</h2>
+      <figure class="pipeline"><a href="assets/system-pipeline.pdf" aria-label="Open full-resolution system pipeline diagram (PDF)"><img src="assets/system-pipeline.webp" loading="lazy" alt="Workflow from reference acquisition and model training through two setup routes to on-device video compensation."></a>
+        <figcaption>The two setup routes share the same per-frame operations on the phone. <a href="assets/system-pipeline.pdf">Full-resolution diagram</a></figcaption>
+      </figure>
+    </div>
+    <div class="prose"><p><strong>Setup.</strong> MobileComp loads a setup-specific sampling grid and compensation model prepared on a desktop GPU. SI-MobileComp instead estimates the grid and caches surface features from phone-captured references, using the same pretrained weights across setups.</p>
+    <p><strong>Playback.</strong> Both methods reuse their setup state throughout the session. The CPU applies the geometric warp while the neural processor corrects the preceding frame’s colour and intensity. The phone streams the compensated video to the projector.</p></div>
+  </section>
+
+  <section class="band" id="performance" aria-labelledby="performance-title">
+    <div class="wide"><h2 id="performance-title">On-Device Performance</h2>
+      <p class="intro">Model size, image quality and latency measured on the Xiaomi 13 Pro. Quality scores give equal weight to each of the eight projection setups.</p>
+<div class="table-scroll" tabindex="0" role="region" aria-label="Smartphone performance comparison"><table><caption>Camera-captured quality across eight target setups and deployment on Xiaomi 13 Pro</caption><thead><tr><th scope="col">Method</th><th scope="col">FPS ↑</th><th scope="col">Size (MB) ↓</th><th scope="col">PSNR (dB) ↑</th><th scope="col">SSIM ↑</th><th scope="col">p95 latency (ms) ↓</th></tr></thead><tbody>
+<tr class="ours"><th scope="row">MobileComp</th><td>72.30</td><td>1.07</td><td>21.2943</td><td>0.7890</td><td>17.66</td></tr>
+<tr class="ours"><th scope="row">SI-MobileComp</th><td>64.76</td><td>0.22</td><td>21.3722</td><td>0.8020</td><td>27.87</td></tr>
+<tr><th scope="row">CompenHR</th><td>&lt;1</td><td>12.87</td><td>21.6630</td><td>0.7982</td><td>5074.88</td></tr>
+<tr><th scope="row">CompenNeSt++</th><td>&lt;1</td><td>45.00</td><td>21.2133</td><td>0.7902</td><td>33695.64</td></tr>
+<tr><th scope="row">CompenRT</th><td>&lt;1</td><td>27.06</td><td>21.1273</td><td>0.7894</td><td>12890.01</td></tr>
+</tbody></table></div><p class="note">Size denotes the model file. The 0.22 MB SI-MobileComp model also uses a 17.28 MB surface cache. Both methods assume a fixed projector, camera and surface during playback.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="prose">
+  <p>Page layout adapted from the <a href="https://eliahuhorwitz.github.io/Academic-project-page-template/">Academic Project Page Template</a>, based on <a href="https://nerfies.github.io/">Nerfies</a>.</p>
+  <p>Teaser frames adapted from <i>Wing It!</i>, © Blender Foundation, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
+</div></footer>
+</body>
+</html>
