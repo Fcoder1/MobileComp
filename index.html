@@ -18,7 +18,6 @@
       <a href="#abstract">Abstract</a>
       <a href="#captures">Camera-captured results</a>
       <a href="#method">Method</a>
-      <a href="#performance">On-device performance</a>
     </nav>
   </details>
 </header>
@@ -81,18 +80,7 @@
     <p><strong>Playback.</strong> Both methods reuse their setup state throughout the session. The CPU applies the geometric warp while the neural processor corrects the preceding frame’s colour and intensity. The phone streams the compensated video to the projector.</p></div>
   </section>
 
-  <section class="band" id="performance" aria-labelledby="performance-title">
-    <div class="wide"><h2 id="performance-title">On-Device Performance</h2>
-      <p class="intro">Model size, image quality and latency measured on the Xiaomi 13 Pro. Quality scores give equal weight to each of the eight projection setups.</p>
-<div class="table-scroll" tabindex="0" role="region" aria-label="Smartphone performance comparison"><table><caption>Camera-captured quality across eight target setups and deployment on Xiaomi 13 Pro</caption><thead><tr><th scope="col">Method</th><th scope="col">FPS ↑</th><th scope="col">Size (MB) ↓</th><th scope="col">PSNR (dB) ↑</th><th scope="col">SSIM ↑</th><th scope="col">p95 latency (ms) ↓</th></tr></thead><tbody>
-<tr class="ours"><th scope="row">MobileComp</th><td>72.30</td><td>1.07</td><td>21.2943</td><td>0.7890</td><td>17.66</td></tr>
-<tr class="ours"><th scope="row">SI-MobileComp</th><td>64.76</td><td>0.22</td><td>21.3722</td><td>0.8020</td><td>27.87</td></tr>
-<tr><th scope="row">CompenHR</th><td>&lt;1</td><td>12.87</td><td>21.6630</td><td>0.7982</td><td>5074.88</td></tr>
-<tr><th scope="row">CompenNeSt++</th><td>&lt;1</td><td>45.00</td><td>21.2133</td><td>0.7902</td><td>33695.64</td></tr>
-<tr><th scope="row">CompenRT</th><td>&lt;1</td><td>27.06</td><td>21.1273</td><td>0.7894</td><td>12890.01</td></tr>
-</tbody></table></div><p class="note">Size denotes the model file. The 0.22 MB SI-MobileComp model also uses a 17.28 MB surface cache. Both methods assume a fixed projector, camera and surface during playback.</p>
-    </div>
-  </section>
+
 </main>
 <footer><div class="prose">
   <p>Page layout adapted from the <a href="https://eliahuhorwitz.github.io/Academic-project-page-template/">Academic Project Page Template</a>, based on <a href="https://nerfies.github.io/">Nerfies</a>.</p>
