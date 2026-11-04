@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MobileComp: Real-Time Full Projector Compensation on Mobile Devices</title>
-  <meta name="description" content="Real-time full projector compensation on a smartphone. Explore MobileComp, camera captures, the method and on-device results.">
+  <meta name="description" content="Real-time full projector compensation on a smartphone. Explore MobileComp, the video presentation and camera-captured results.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=paper-teaser"><script src="app.js" defer></script>
+  <link rel="stylesheet" href="style.css?v=no-method"><script src="app.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -18,7 +18,6 @@
       <a href="#abstract">Abstract</a>
       <a href="#presentation">Video presentation</a>
       <a href="#captures">Camera-captured results</a>
-      <a href="#method">Method</a>
     </nav>
   </details>
 </header>
@@ -82,17 +81,6 @@
 
     </div>
   </section>
-
-  <section class="band tint" id="method" aria-labelledby="method-title">
-    <div class="wide"><h2 id="method-title">Method</h2>
-      <figure class="pipeline"><a href="assets/system-pipeline.pdf" aria-label="Open full-resolution system pipeline diagram (PDF)"><img src="assets/system-pipeline.webp" loading="lazy" alt="Workflow from reference acquisition and model training through two setup routes to on-device video compensation."></a>
-        <figcaption>The two setup routes share the same per-frame operations on the phone. <a href="assets/system-pipeline.pdf">Full-resolution diagram</a></figcaption>
-      </figure>
-    </div>
-    <div class="prose"><p><strong>Setup.</strong> MobileComp loads a setup-specific sampling grid and compensation model prepared on a desktop GPU. SI-MobileComp instead estimates the grid and caches surface features from phone-captured references, using the same pretrained weights across setups.</p>
-    <p><strong>Playback.</strong> Both methods reuse their setup state throughout the session. The CPU applies the geometric warp while the neural processor corrects the preceding frame’s colour and intensity. The phone streams the compensated video to the projector.</p></div>
-  </section>
-
 
 </main>
 <footer><div class="prose">
