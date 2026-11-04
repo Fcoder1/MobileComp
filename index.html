@@ -16,6 +16,7 @@
     <nav aria-label="Page contents">
       <a href="#top">Paper and supplement</a>
       <a href="#abstract">Abstract</a>
+      <a href="#presentation">Video presentation</a>
       <a href="#captures">Camera-captured results</a>
       <a href="#method">Method</a>
     </nav>
@@ -28,6 +29,7 @@
     <div class="resources">
       <a href="assets/mobilecomp-manuscript.pdf"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper</a>
       <a href="assets/mobilecomp-supplement.pdf"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 3h12v15H8z M4 7v14h12 M11 8h6 M11 12h6"/></svg>Supplementary</a>
+      <a href="#presentation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></svg>Video</a>
     </div>
   </header>
 
@@ -45,6 +47,19 @@
     <div class="prose"><h2 id="abstract-title">Abstract</h2>
       <p>Projecting an image onto a nonplanar, textured surface changes both its shape and its colour. Full projector compensation modifies the projector input so that the captured projection resembles the desired image. Existing learning-based methods typically require setup-specific training on a desktop GPU and are computationally expensive to run on a smartphone.</p>
       <p>MobileComp prepares a compact model on a desktop GPU and performs geometric correction and photometric compensation on the phone. Its setup-independent variant, SI-MobileComp, uses shared pretrained weights and initializes each new setup on the phone. Both methods overlap CPU frame preparation with inference on the phone’s neural processing unit. Across eight target setups, they retain competitive camera-captured image quality and reach 72.30 and 64.76 FPS, respectively, on a Xiaomi 13 Pro. Three desktop-oriented baselines each run below 1 FPS on the same device.</p>
+    </div>
+  </section>
+
+  <section class="band" id="presentation" aria-labelledby="presentation-title">
+    <div class="wide">
+      <h2 id="presentation-title">Video Presentation</h2>
+      <figure class="presentation">
+        <video controls playsinline preload="metadata" poster="assets/presentation-poster.jpg" width="1920" height="1080" aria-label="MobileComp presentation and system demonstration">
+          <source src="assets/mobilecomp-presentation.mp4" type="video/mp4">
+          <p>Your browser does not support embedded video. <a href="assets/mobilecomp-presentation.mp4">Open the presentation video</a>.</p>
+        </video>
+        <figcaption>A walkthrough of MobileComp and SI-MobileComp, from setup and mobile inference to real-world projection results.</figcaption>
+      </figure>
     </div>
   </section>
 
