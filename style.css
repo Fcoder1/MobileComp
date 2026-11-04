@@ -33,9 +33,11 @@ h1 { max-width: 960px; margin-inline: auto; font-size: clamp(31px, 4.4vw, 48px);
 .term { white-space: nowrap; }
 .authors { font-size: 20px; font-weight: 500; margin: 24px 0 20px; color: var(--body); }
 .resources { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-.resources a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 17px; font-size: 16px; line-height: 1.5; font-weight: 600; color: white; background: var(--ink); border-radius: 12px; box-shadow: 0 2px 4px #1e293b23; text-decoration: none; }
+.resources a, .resources .resource-pending { display: inline-flex; align-items: center; gap: 8px; padding: 9px 17px; font-size: 16px; line-height: 1.5; font-weight: 600; color: white; background: var(--ink); border-radius: 12px; box-shadow: 0 2px 4px #1e293b23; text-decoration: none; }
 .resources svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linejoin: round; stroke-linecap: round; }
 .resources a:hover { background: var(--link); }
+.resources .resource-pending { color: #475569; background: #f1f5f9; box-shadow: none; border: 1px solid var(--edge); }
+.resource-status { font-size: 11px; font-weight: 500; white-space: nowrap; }
 .teaser { margin-block: 48px 52px; }
 .teaser-media { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 4px; align-items: start; }
 .frame { min-width: 0; text-align: center; }
