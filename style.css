@@ -48,6 +48,7 @@ h2 { font-size: clamp(26px, 3vw, 32px); line-height: 1.2; text-align: center; fo
 h2::after { content: ""; display: block; width: 60px; height: 3px; margin: 16px auto 0; border-radius: 4px; background: var(--accent); }
 .prose p { font-size: 17px; line-height: 1.8; }
 .prose p + p { margin-top: 1em; }
+#abstract .prose p { text-align: justify; }
 .intro { max-width: 730px; margin: 0 auto 28px; text-align: center; font-size: 16px; }
 .viewer { max-width: 800px; margin-inline: auto; border-radius: 16px; padding: 22px; border: 1px solid var(--edge); box-shadow: 0 4px 18px #1e293b0c; display: grid; grid-template-columns: 1fr 25%; gap: 18px 22px; align-items: start; }
 .scene-list { grid-column: 1 / -1; display: flex; align-items: end; justify-content: space-between; gap: 15px; }
