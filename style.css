@@ -151,3 +151,11 @@ html:has(body.reduced-motion) { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal.pending-reveal { opacity: 1; transform: none; }
 }
+
+/* A projector beam behind the wordmark; keep the academic title in place. */
+.projected-title { position: relative; display: inline-block; isolation: isolate; }
+.projected-title::before { content: ""; position: absolute; z-index: -1; pointer-events: none; top: -10%; bottom: -8%; left: -.16em; right: -.28em; background: linear-gradient(90deg, #e9fbff88 0%, #9be7ff36 14%, #80d5ff1f 70%, transparent 100%); clip-path: polygon(0 50%, 100% 0, 100% 100%); filter: blur(3px); transform-origin: left center; opacity: .5; animation: projection-beam 6s ease-in-out infinite; }
+.projected-title::after { content: ""; position: absolute; pointer-events: none; left: -.18em; top: 49%; width: .045em; height: .07em; border-radius: 50%; background: #e1f8ff; box-shadow: 0 0 .12em .04em #9ee7ff88, 0 0 .4em .08em #8ddfff55; }
+.projected-word { color: #e6f8ff; background: linear-gradient(105deg, #c2e2f1 0%, #eaf7fc 35%, #fff 45%, #fff 49%, #b9eaff 56%, #e7f5fb 70%, #c2e2f1 100%); background-size: 260% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 .3em #82d7ff33; animation: projection-sweep 7s ease-in-out infinite; }
+@keyframes projection-sweep { 0%, 12% { background-position: 100% 0; } 65%, 100% { background-position: 0% 0; } }
+@keyframes projection-beam { 0%, 100% { opacity: .35; transform: scaleY(.86); } 50% { opacity: .65; transform: scaleY(1.06); } }
