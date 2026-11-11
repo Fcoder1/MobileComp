@@ -147,7 +147,7 @@ html:has(body.reduced-motion) { scroll-behavior: auto; }
 
 /* A projector beam behind the wordmark; keep the academic title in place. */
 .projected-title { position: relative; display: inline-block; isolation: isolate; }
-.projected-title::before { content: ""; position: absolute; z-index: -1; pointer-events: none; top: -48%; bottom: -42%; left: -.03em; right: -.5em; background: linear-gradient(90deg, #c4f2ff18 0%, #c2efff8c 18%, #7ed5ff59 60%, #68cfff0d 95%, transparent 100%); clip-path: polygon(0 50%, 94% 0, 100% 8%, 100% 92%, 94% 100%); filter: blur(5px); transform-origin: left center; opacity: .85; animation: projection-beam 6s ease-in-out infinite; }
+.projected-title::before { content: ""; position: absolute; z-index: -1; pointer-events: none; top: -48%; bottom: -42%; left: -.53em; right: 0; background: linear-gradient(90deg, #c4f2ff18 0%, #c2efff8c 18%, #7ed5ff59 60%, #68cfff0d 95%, transparent 100%); clip-path: polygon(0 50%, 94% 0, 100% 8%, 100% 92%, 94% 100%); filter: blur(5px); transform-origin: left center; opacity: .85; animation: projection-beam 6s ease-in-out infinite; }
 .projected-word { color: #e6f8ff; background: linear-gradient(105deg, #c2e2f1 0%, #eaf7fc 35%, #fff 45%, #fff 49%, #b9eaff 56%, #e7f5fb 70%, #c2e2f1 100%); background-size: 260% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 .18em #c6f4ff88, 0 0 .5em #72d6ff66; animation: projection-sweep 7s ease-in-out infinite; }
 @keyframes projection-sweep { 0%, 12% { background-position: 100% 0; } 65%, 100% { background-position: 0% 0; } }
 @keyframes projection-beam { 0%, 100% { opacity: .7; transform: scaleY(.92); } 50% { opacity: 1; transform: scaleY(1.05); } }
