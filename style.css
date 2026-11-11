@@ -113,7 +113,7 @@ html { scroll-padding-top: 70px; }
 .motion-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 9px 12px; min-height: 42px; color: var(--body); background: #11171b; border: 1px solid #34434e; border-radius: 12px; font-size: 12px; cursor: pointer; }
 .motion-toggle svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.5; }
 .motion-toggle:hover { border-color: var(--link); color: var(--ink); }
-.demo-section { margin-top: 42px; }
+.demo-section { margin-block: 42px 48px; }
 .demo-frame { position: relative; padding: 7px; border: 1px solid #35434b; border-radius: 15px; background: #080b0d; box-shadow: 0 0 65px -35px #95d7f066; }
 .demo-frame::before { content: ""; position: absolute; inset: -1px 20% auto; height: 1px; background: linear-gradient(90deg, transparent, #c0edff, transparent); }
 .demo video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 9px; background: #000; }
@@ -140,7 +140,7 @@ html:has(body.reduced-motion) { scroll-behavior: auto; }
 @media (max-width: 560px) {
   .publication::before { inset-inline: 0; }
   .motion-toggle span { display: none; }
-  .demo-section { margin-top: 30px; }
+  .demo-section { margin-block: 30px; }
   .demo-frame { padding: 3px; border-radius: 10px; }
   .demo-caption { font-size: 12px; }
   .demo-caption > div { flex-wrap: wrap; gap: 6px; }
