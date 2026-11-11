@@ -45,38 +45,23 @@ contents.addEventListener('keydown', event => {
 // Respect the visitor's system motion preference.
 const systemMotion = matchMedia('(prefers-reduced-motion: reduce)');
 const video = document.getElementById('hero-video');
-const playback = document.getElementById('demo-toggle');
 let reducedMotion = systemMotion.matches;
 let userPaused = false;
 let inView = false;
 let automaticPause = false;
 
-playback.hidden = false;
-function syncPlayback() {
-  const playing = !video.paused;
-  playback.classList.toggle('is-playing', playing);
-  playback.querySelector('span').textContent = playing ? 'Pause' : 'Play';
-  playback.setAttribute('aria-label', (playing ? 'Pause' : 'Play') + ' video compensation');
-}
-video.addEventListener('play', () => { userPaused = false; syncPlayback(); });
+video.addEventListener('play', () => { userPaused = false; });
 video.addEventListener('pause', () => {
   if (!automaticPause) userPaused = true;
   automaticPause = false;
-  syncPlayback();
 });
 function pauseAutomatically() {
   if (!video.paused) { automaticPause = true; video.pause(); }
 }
 function updateAutoPlayback() {
   if (!inView || document.hidden || reducedMotion) pauseAutomatically();
-  else if (!userPaused) video.play().catch(() => { syncPlayback(); });
+  else if (!userPaused) video.play().catch(() => { /* Native controls remain available if autoplay is blocked. */ });
 }
-playback.addEventListener('click', () => {
-  if (video.paused) {
-    userPaused = false;
-    video.play().catch(syncPlayback);
-  } else { userPaused = true; video.pause(); }
-});
 function applyMotionPreference() {
   document.body.classList.toggle('reduced-motion', reducedMotion);
   updateAutoPlayback();
