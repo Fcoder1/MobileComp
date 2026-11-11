@@ -42,13 +42,11 @@ contents.addEventListener('keydown', event => {
   }
 });
 
-// Respect system preferences, with an explicit control for this page.
+// Respect the visitor's system motion preference.
 const systemMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const motionButton = document.getElementById('motion-toggle');
 const video = document.getElementById('hero-video');
 const playback = document.getElementById('demo-toggle');
 let reducedMotion = systemMotion.matches;
-let userMotionPreference = false;
 let userPaused = false;
 let inView = false;
 let automaticPause = false;
@@ -81,18 +79,11 @@ playback.addEventListener('click', () => {
 });
 function applyMotionPreference() {
   document.body.classList.toggle('reduced-motion', reducedMotion);
-  motionButton.setAttribute('aria-pressed', String(reducedMotion));
-  motionButton.setAttribute('aria-label', reducedMotion ? 'Enable motion' : 'Reduce motion');
-  motionButton.querySelector('span').textContent = reducedMotion ? 'Motion off' : 'Motion on';
   updateAutoPlayback();
 }
-motionButton.addEventListener('click', () => {
-  userMotionPreference = true;
-  reducedMotion = !reducedMotion;
-  applyMotionPreference();
-});
 systemMotion.addEventListener('change', event => {
-  if (!userMotionPreference) { reducedMotion = event.matches; applyMotionPreference(); }
+  reducedMotion = event.matches;
+  applyMotionPreference();
 });
 applyMotionPreference();
 const videoObserver = new IntersectionObserver(entries => {
