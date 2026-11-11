@@ -214,3 +214,5 @@ html:has(body.reduced-motion) { scroll-behavior: auto; }
  .lightbox-toolbar h2 { font-size: 15px; }
  .lightbox-image { padding: 8px; }
 }
+
+.title-projector { position: absolute; right: calc(100% + .45em); top: 50%; width: 1em; height: auto; transform: translateY(-50%); filter: drop-shadow(0 0 5px #8edcff24); pointer-events: none; }
