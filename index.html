@@ -4,70 +4,80 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>MobileComp: Real-Time Full Projector Compensation on Mobile Devices</title>
-  <meta name="description" content="Real-time full projector compensation on a smartphone. Explore MobileComp, the video presentation and camera-captured results.">
-  <meta name="theme-color" content="#ffffff">
-  <link rel="icon" href="mark.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=abstract-justify"><script src="app.js" defer></script>
+  <meta name="description" content="Real-time full projector compensation on a mobile device. Watch MobileComp in motion and explore camera-captured results.">
+  <meta name="theme-color" content="#050607">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="mark.svg?v=projection" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css?v=dark-1">
+  <script src="app.js?v=dark-1" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-menu">
-  <details id="contents"><summary>On this page</summary>
-    <nav aria-label="Page contents">
-      <a href="#top">Project overview</a>
-      <a href="#abstract">Abstract</a>
-      <a href="#presentation">Video presentation</a>
-      <a href="#captures">Camera-captured results</a>
-    </nav>
-  </details>
+<header class="site-header">
+  <div class="nav-inner wide">
+    <a class="brand" href="#top" aria-label="MobileComp home"><img src="mark.svg" width="32" height="32" alt=""><span>MobileComp</span></a>
+    <nav class="desktop-nav" aria-label="Main navigation"><a href="#overview">Overview</a><a href="#captures">Results</a><a href="#abstract">Abstract</a><a href="#presentation">Presentation <span aria-hidden="true">↗</span></a></nav>
+    <div class="nav-tools">
+      <button id="motion-toggle" class="motion-toggle" type="button" aria-pressed="false" aria-label="Reduce motion"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3l3-7 6 14 3-7h3"/></svg><span>Motion on</span></button>
+      <details id="contents"><summary aria-label="Open navigation"><span></span><span></span></summary><nav aria-label="Mobile navigation"><a href="#top">Video compensation</a><a href="#overview">Overview</a><a href="#captures">Results</a><a href="#abstract">Abstract</a><a href="#presentation">Presentation</a></nav></details>
+    </div>
+  </div>
+  <div class="reading-progress" aria-hidden="true"></div>
 </header>
 <main id="main">
-  <header class="publication" id="top">
-    <h1>MobileComp: <span class="term">Real-Time</span> Full Projector Compensation on Mobile Devices</h1>
-    <p class="authors">Anonymous authors</p>
-    <div class="resources">
+  <section class="hero" id="top" aria-labelledby="project-title">
+    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="wide">
+      <div class="hero-heading">
+        <h1 id="project-title"><span class="wordmark">MobileComp<span class="title-colon">:</span></span><span class="project-title">Real-Time Full Projector Compensation on Mobile Devices</span></h1>
+        <p class="authors">Anonymous authors</p>
+      </div>
+      <figure class="hero-demo">
+        <div class="demo-frame">
+          <div class="frame-corner corner-one" aria-hidden="true"></div><div class="frame-corner corner-two" aria-hidden="true"></div>
+          <video id="hero-video" controls muted loop playsinline preload="metadata" poster="assets/video-compensation-poster.jpg" width="1920" height="1080" aria-label="Video compensation: uncompensated, desired, and compensated projections across three surfaces">
+            <source src="assets/video-compensation.mp4" type="video/mp4">
+            <p><a href="assets/video-compensation.mp4">Watch video compensation</a>.</p>
+          </video>
+        </div>
+        <figcaption class="demo-caption"><div><span class="status-light" aria-hidden="true"></span><strong>Video compensation</strong><span class="demo-detail">Camera-captured results · 19 seconds</span></div><button id="demo-toggle" class="playback" type="button" aria-label="Play video compensation" hidden><svg class="play-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><svg class="pause-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span>Play</span></button></figcaption>
+      </figure>
+      <div class="hero-foot"><p>Geometric correction. Photometric compensation. On-device.</p><a href="#overview">Explore the research <span aria-hidden="true">↓</span></a></div>
+    </div>
+  </section>
+
+  <section class="section overview" id="overview" aria-labelledby="overview-title">
+    <div class="wide">
+      <div class="section-heading reveal"><div><p class="eyebrow">THE PROJECT</p><h2 id="overview-title">Full compensation.<br><span>Mobile by design.</span></h2></div>
+        <svg class="device-art" viewBox="0 0 320 160" fill="none" aria-hidden="true">
+          <defs><linearGradient id="beam" x1="174" y1="80" x2="302" y2="80" gradientUnits="userSpaceOnUse"><stop stop-color="#a7e9f5" stop-opacity=".28"/><stop offset="1" stop-color="#a7e9f5" stop-opacity="0"/></linearGradient></defs>
+          <path class="device-beam" d="M174 80 306 18v124Z" fill="url(#beam)"/><path d="m174 80 132-62M174 80l132 62" stroke="#94cddd" stroke-opacity=".25"/>
+          <rect x="23" y="24" width="56" height="112" rx="11" stroke="#bfc8cd" stroke-width="2"/><path d="M41 32h20M44 126h14" stroke="#bfc8cd" stroke-width="2" stroke-linecap="round"/><rect x="30" y="43" width="42" height="68" rx="3" fill="#a7e9f5" fill-opacity=".05"/><path d="m39 91 9-19 8 10 8-23" stroke="#a7e9f5" stroke-width="1.5"/>
+          <path d="M80 103h16v-9h19" stroke="#606e77" stroke-dasharray="3 4"/><rect x="115" y="65" width="70" height="43" rx="8" fill="#11171a" stroke="#7a8d99" stroke-width="1.5"/><circle class="projector-lens" cx="167" cy="83" r="9" stroke="#c6f4ff" stroke-width="2"/><circle cx="167" cy="83" r="4" fill="#c6f4ff"/><path d="M124 81h19m-19 6h19m-19 6h19m-17 15v5m48-5v5" stroke="#7a8d99" stroke-linecap="round"/>
+          <path d="M306 18v124" stroke="#a7e9f5" stroke-opacity=".45"/>
+        </svg>
+      </div>
+      <figure class="teaser reveal">
+        <a class="teaser-image" href="assets/teaser.png" aria-label="Open full-resolution MobileComp paper teaser"><img src="assets/teaser.png" loading="lazy" width="2880" height="942" alt="MobileComp paper teaser: the mobile projector-camera system, the MobileComp and SI-MobileComp setup routes, and on-device video compensation with a remote console."><span class="expand-hint" aria-hidden="true">View full image ↗</span></a>
+        <figcaption><strong>MobileComp</strong> adjusts each video frame for the geometry and color of a textured surface, reaching <strong>72.30 FPS</strong> on a mobile device.</figcaption>
+      </figure>
+      <div class="resources reveal">
       <span class="resource-pending" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z M14 3v5h4 M9 12h6 M9 16h6"/></svg>Paper <span class="resource-status">Coming soon</span></span>
       <span class="resource-pending" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 3h12v15H8z M4 7v14h12 M11 8h6 M11 12h6"/></svg>Supplementary <span class="resource-status">Coming soon</span></span>
       <span class="resource-pending" aria-disabled="true"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m7 4 10 16 M17 4 7 16"/></svg>arXiv <span class="resource-status">Coming soon</span></span>
-      <a href="#presentation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></svg>Video</a>
-    </div>
-  </header>
-
-  <figure class="teaser wide">
-    <a class="teaser-image" href="assets/teaser.png" aria-label="Open full-resolution MobileComp teaser">
-      <img src="assets/teaser.png" width="2880" height="942" alt="MobileComp paper teaser: the mobile projector-camera system, the MobileComp and SI-MobileComp setup routes, and on-device video compensation with a remote console.">
-    </a>
-    <figcaption><strong>MobileComp</strong> adjusts each video frame for the geometry and color of a textured surface, reaching <strong>72.30 FPS</strong> on a mobile device.</figcaption>
-  </figure>
-
-  <section class="band tint" id="abstract" aria-labelledby="abstract-title">
-    <div class="prose"><h2 id="abstract-title">Abstract</h2>
-      <p>Full projector compensation aims to modify projector input image to compensate for geometric and photometric distortions introduced by a nonplanar, textured projection surface. Mobile deployment of this capability is highly desirable, as it provides user convenience and preserves data privacy by keeping projector inputs on-device, without uploading to external servers. Existing learning-based methods, however, typically require setup-specific training on a desktop-class GPU and computationally expensive inference, limiting self-contained mobile deployment. To solve this problem, we propose MobileComp, which, to the best of our knowledge, is the first framework to enable real-time full projector compensation on a smartphone. MobileComp performs real-time geometric correction and photometric compensation on the smartphone after preparing a compact compensation model on a desktop-class GPU. We further present Setup-Independent MobileComp (SI-MobileComp) to eliminate per-setup training using shared pre-trained weights. We design a compact student network, deployment-aligned quantization, and an asynchronous Android pipeline that overlaps frame preparation with inference on the smartphone-integrated neural processing unit (NPU). This pipeline integrates smartphone-based reference acquisition, setup initialization, video decoding, geometric correction, and NPU-based photometric compensation to form a complete mobile compensation system. Evaluations across diverse setups show that MobileComp achieves real-time video compensation on a smartphone, outperforming desktop-oriented baselines that run at less than 1 FPS on the same device with a speedup of over 60x.</p>
+      <a href="#presentation"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 5 11 7-11 7z"/></svg>Video</a></div>
     </div>
   </section>
 
-  <section class="band" id="presentation" aria-labelledby="presentation-title">
+  <section class="section results" id="captures" aria-labelledby="captures-title">
     <div class="wide">
-      <h2 id="presentation-title">Video Presentation</h2>
-      <figure class="presentation">
-        <video controls playsinline preload="metadata" poster="assets/presentation-poster.jpg" width="1920" height="1080" aria-label="MobileComp presentation and system demonstration">
-          <source src="assets/mobilecomp-presentation.mp4" type="video/mp4">
-          <p>Your browser does not support embedded video. <a href="assets/mobilecomp-presentation.mp4">Open the presentation video</a>.</p>
-        </video>
-        <figcaption>A walkthrough of MobileComp and SI-MobileComp, from setup and mobile inference to real-world projection results.</figcaption>
-      </figure>
-    </div>
-  </section>
-
-  <section class="band" id="captures" aria-labelledby="captures-title">
-    <div class="wide"><h2 id="captures-title">Camera-Captured Results</h2>
-      <p class="intro">Select a scene and drag the divider to compare the uncompensated and compensated projections. The reference images show the desired frame and the bare surface.</p>
-<div class="viewer">
+      <div class="section-heading reveal"><div><p class="eyebrow">CAMERA-CAPTURED RESULTS</p><h2 id="captures-title">See the difference.</h2></div><p class="section-intro">Select a scene. Move the divider.<br> Compare the projections for yourself.</p></div>
+      <div class="viewer reveal">
   <div class="scene-list"><h3>Choose a scene</h3><div id="scene-buttons" class="scene-buttons" role="group" aria-label="Scene">
-    <button data-scene="textile" aria-pressed="true"><img src="assets/textile-desired.jpg" alt="">Still life <span>01</span></button>
-    <button data-scene="storefront" aria-pressed="false"><img src="assets/storefront-desired.jpg" alt="">Storefront <span>02</span></button>
-    <button data-scene="market" aria-pressed="false"><img src="assets/market-desired.jpg" alt="">Market <span>03</span></button>
-    <button data-scene="interior" aria-pressed="false"><img src="assets/interior-desired.jpg" alt="">Interior <span>04</span></button></div>
+    <button data-scene="textile" aria-pressed="true"><img loading="lazy" src="assets/textile-desired.jpg" alt="">Still life <span>01</span></button>
+    <button data-scene="storefront" aria-pressed="false"><img loading="lazy" src="assets/storefront-desired.jpg" alt="">Storefront <span>02</span></button>
+    <button data-scene="market" aria-pressed="false"><img loading="lazy" src="assets/market-desired.jpg" alt="">Market <span>03</span></button>
+    <button data-scene="interior" aria-pressed="false"><img loading="lazy" src="assets/interior-desired.jpg" alt="">Interior <span>04</span></button></div>
     <div class="choice"><label for="method-choice">Compensation method</label><select id="method-choice"><option value="mobile">MobileComp</option><option value="si">SI-MobileComp</option></select></div>
   </div>
   <figure class="comparison"><div class="wipe" id="wipe">
@@ -77,14 +87,27 @@
   </div><figcaption><span>Uncompensated</span><span id="after-caption">MobileComp</span></figcaption></figure>
   <div class="references"><figure><img id="desired" src="assets/textile-desired.jpg" alt="Desired still life frame"><figcaption>Desired frame</figcaption></figure><figure><img id="surface" src="assets/textile-surface.jpg" alt="Bare projection surface"><figcaption>Projection surface</figcaption></figure></div>
 </div><p id="scene-status" class="sr-only" role="status"></p>
-
+      <p class="viewer-note">Actual camera captures. Reference images show the desired frame and the bare projection surface.</p>
     </div>
   </section>
 
+  <section class="section abstract" id="abstract" aria-labelledby="abstract-title">
+    <div class="wide abstract-layout">
+      <div class="section-heading reveal"><div><p class="eyebrow">THE RESEARCH</p><h2 id="abstract-title">Abstract</h2></div><div class="abstract-decoration" aria-hidden="true"><span></span><span></span><span></span></div></div>
+      <div class="prose reveal"><p>Full projector compensation aims to modify projector input image to compensate for geometric and photometric distortions introduced by a nonplanar, textured projection surface. Mobile deployment of this capability is highly desirable, as it provides user convenience and preserves data privacy by keeping projector inputs on-device, without uploading to external servers. Existing learning-based methods, however, typically require setup-specific training on a desktop-class GPU and computationally expensive inference, limiting self-contained mobile deployment. To solve this problem, we propose MobileComp, which, to the best of our knowledge, is the first framework to enable real-time full projector compensation on a smartphone. MobileComp performs real-time geometric correction and photometric compensation on the smartphone after preparing a compact compensation model on a desktop-class GPU. We further present Setup-Independent MobileComp (SI-MobileComp) to eliminate per-setup training using shared pre-trained weights. We design a compact student network, deployment-aligned quantization, and an asynchronous Android pipeline that overlaps frame preparation with inference on the smartphone-integrated neural processing unit (NPU). This pipeline integrates smartphone-based reference acquisition, setup initialization, video decoding, geometric correction, and NPU-based photometric compensation to form a complete mobile compensation system. Evaluations across diverse setups show that MobileComp achieves real-time video compensation on a smartphone, outperforming desktop-oriented baselines that run at less than 1 FPS on the same device with a speedup of over 60x.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="presentation" aria-labelledby="presentation-title">
+    <div class="wide">
+      <div class="section-heading reveal"><div><p class="eyebrow">TAKE A CLOSER LOOK</p><h2 id="presentation-title">The full presentation.</h2></div><p class="section-intro">From setup to projection.<br> The complete MobileComp walkthrough.</p></div>
+      <figure class="presentation reveal"><video controls playsinline preload="none" poster="assets/presentation-poster.jpg" width="1920" height="1080" aria-label="MobileComp presentation and system demonstration"><source src="assets/mobilecomp-presentation.mp4" type="video/mp4"><p><a href="assets/mobilecomp-presentation.mp4">Open the presentation video</a>.</p></video><figcaption>MobileComp and SI-MobileComp: setup, mobile inference, and real-world projection results.</figcaption></figure>
+    </div>
+  </section>
 </main>
-<footer><div class="prose">
-  <p>Page layout adapted from the <a href="https://eliahuhorwitz.github.io/Academic-project-page-template/">Academic Project Page Template</a>, based on <a href="https://nerfies.github.io/">Nerfies</a>.</p>
+<footer><div class="wide footer-inner"><a class="footer-brand" href="#top"><img src="mark.svg" width="28" height="28" alt="">MobileComp <span>↑</span></a><div class="credits">
+  <p>Original page based on the <a href="https://eliahuhorwitz.github.io/Academic-project-page-template/">Academic Project Page Template</a>, based on <a href="https://nerfies.github.io/">Nerfies</a>.</p>
   <p>Teaser frames adapted from <i>Wing It!</i>, © Blender Foundation, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>
-</div></footer>
+</div></div></footer>
 </body>
 </html>
