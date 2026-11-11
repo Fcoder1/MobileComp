@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#050607">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="mark.svg?v=projection" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=projection-title-3"><script src="app.js?v=system-motion-1" defer></script>
+  <link rel="stylesheet" href="style.css?v=ui-showcase-1"><script src="app.js?v=ui-showcase-1" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -17,6 +17,7 @@
     <nav aria-label="Page contents">
       <a href="#top">Project overview</a>
       <a href="#video-compensation">Video compensation</a>
+      <a href="#interface">App &amp; web console</a>
       <a href="#abstract">Abstract</a>
       <a href="#presentation">Video presentation</a>
       <a href="#captures">Camera-captured results</a>
@@ -45,6 +46,38 @@
         </div>
         <figcaption class="demo-caption"><div><span class="status-light" aria-hidden="true"></span><strong>Video compensation</strong><span class="demo-detail">Camera-captured results · 19 seconds</span></div><button id="demo-toggle" class="playback" type="button" aria-label="Play video compensation" hidden><svg class="play-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="m9 5 11 7-11 7z"/></svg><svg class="pause-symbol" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14M16 5v14"/></svg><span>Play</span></button></figcaption>
       </figure>
+  </section>
+
+  <section class="interface-showcase" id="interface" aria-labelledby="interface-title">
+    <div class="interface-heading reveal">
+      <p class="interface-eyebrow">MOBILECOMP UI</p>
+      <h2 id="interface-title">Mobile app.<br>Web console.</h2>
+      <p>Acquire references, run compensation, and monitor results.</p>
+    </div>
+    <div class="interface-stage reveal">
+      <div class="interface-aura" aria-hidden="true"></div>
+      <button class="ui-panel panel-outer-left" data-ui-image="assets/ui-single-frame.png" data-ui-title="Single-frame compensation" aria-label="Enlarge single-frame compensation screenshot">
+        <span class="window-bar"><i aria-hidden="true"></i><span>Single frame</span><span aria-hidden="true">↗</span></span>
+        <img src="assets/ui-single-frame.png" loading="lazy" width="1067" height="613" alt="Web console input preview and compensated single-frame result.">
+      </button>
+      <button class="ui-panel panel-inner-left" data-ui-image="assets/ui-scene-setup.png" data-ui-title="Scene setup" aria-label="Enlarge scene setup screenshot">
+        <span class="window-bar"><i aria-hidden="true"></i><span>Scene setup</span><span aria-hidden="true">↗</span></span>
+        <img src="assets/ui-scene-setup.png" loading="lazy" width="1069" height="929" alt="Web console model selection, receiver settings, and scene reference acquisition.">
+      </button>
+      <button class="ui-panel panel-inner-right" data-ui-image="assets/ui-results.png" data-ui-title="Results and run history" aria-label="Enlarge results and run history screenshot">
+        <span class="window-bar"><i aria-hidden="true"></i><span>Results &amp; history</span><span aria-hidden="true">↗</span></span>
+        <img src="assets/ui-results.png" loading="lazy" width="1064" height="913" alt="Web console image and video results with recent inference runs.">
+      </button>
+      <button class="ui-panel panel-outer-right" data-ui-image="assets/ui-video-frames.png" data-ui-title="Video compensation controls" aria-label="Enlarge video compensation controls screenshot">
+        <span class="window-bar"><i aria-hidden="true"></i><span>Video frames</span><span aria-hidden="true">↗</span></span>
+        <img src="assets/ui-video-frames.png" loading="lazy" width="1082" height="669" alt="Web console video frame-rate controls and processing status.">
+      </button>
+      <button class="ui-phone" data-ui-image="assets/ui-mobile-app.jpg" data-ui-title="MobileComp app" aria-label="Enlarge MobileComp app screenshot">
+        <span class="phone-button phone-button-left" aria-hidden="true"></span><span class="phone-button phone-button-right" aria-hidden="true"></span>
+        <span class="phone-display"><span class="phone-top" aria-hidden="true"><span class="phone-island"></span></span><span class="phone-app-viewport"><img src="assets/ui-mobile-app.jpg" loading="lazy" width="864" height="1920" alt="MobileComp mobile app with model selection and setup, image, camera, and video workflows."></span><span class="phone-bottom" aria-hidden="true"><span></span></span></span>
+      </button>
+    </div>
+    <p class="interface-caption">The app and web console, at a glance.<span>Click a screen to explore the full interface.</span></p>
   </section>
 
   <section class="band tint" id="abstract" aria-labelledby="abstract-title">
@@ -89,6 +122,10 @@
   </section>
 
 </main>
+<dialog id="ui-lightbox" aria-labelledby="ui-lightbox-title">
+  <div class="lightbox-toolbar"><h2 id="ui-lightbox-title">MobileComp interface</h2><button type="button" id="ui-lightbox-close" aria-label="Close screenshot">×</button></div>
+  <div class="lightbox-image"><img id="ui-lightbox-image" alt=""></div>
+</dialog>
 <footer><div class="prose">
   <p>Page layout adapted from the <a href="https://eliahuhorwitz.github.io/Academic-project-page-template/">Academic Project Page Template</a>, based on <a href="https://nerfies.github.io/">Nerfies</a>.</p>
   <p>Demo frames adapted from <i>Wing It!</i>, © Blender Foundation, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</p>

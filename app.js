@@ -108,3 +108,21 @@ document.querySelectorAll('.reveal').forEach(element => {
     revealObserver.observe(element);
   }
 });
+
+const uiLightbox = document.getElementById('ui-lightbox');
+const uiImage = document.getElementById('ui-lightbox-image');
+document.querySelectorAll('[data-ui-image]').forEach(button => {
+  button.addEventListener('click', () => {
+    uiImage.src = button.dataset.uiImage;
+    uiImage.alt = button.querySelector('img').alt;
+    document.getElementById('ui-lightbox-title').textContent = button.dataset.uiTitle;
+    uiLightbox.showModal();
+  });
+});
+document.getElementById('ui-lightbox-close').addEventListener('click', () => uiLightbox.close());
+uiLightbox.addEventListener('click', event => {
+  if (event.target === uiLightbox) {
+    const bounds = uiLightbox.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) uiLightbox.close();
+  }
+});

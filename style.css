@@ -151,3 +151,81 @@ html:has(body.reduced-motion) { scroll-behavior: auto; }
 .projected-word { color: #e6f8ff; background: linear-gradient(105deg, #c2e2f1 0%, #eaf7fc 35%, #fff 45%, #fff 49%, #b9eaff 56%, #e7f5fb 70%, #c2e2f1 100%); background-size: 260% 100%; background-position: 100% 0; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-shadow: 0 0 .18em #c6f4ff88, 0 0 .5em #72d6ff66; animation: projection-sweep 7s ease-in-out infinite; }
 @keyframes projection-sweep { 0%, 12% { background-position: 100% 0; } 65%, 100% { background-position: 0% 0; } }
 @keyframes projection-beam { 0%, 100% { opacity: .7; transform: scaleY(.92); } 50% { opacity: 1; transform: scaleY(1.05); } }
+
+/* Five real screens, arranged around an iPhone-style presentation frame. */
+.interface-showcase { padding: 60px 0 55px; overflow: clip; scroll-margin-top: 30px; }
+.interface-heading { width: min(800px, calc(100% - 32px)); margin: 0 auto 52px; text-align: center; }
+.interface-eyebrow { font-size: 12px; letter-spacing: .16em; font-weight: 600; color: #91d7dd; margin-bottom: 14px; }
+.interface-heading h2 { font-size: clamp(34px, 4.5vw, 52px); line-height: 1.07; letter-spacing: -.04em; margin-bottom: 20px; }
+.interface-heading h2::after { display: none; }
+.interface-heading > p:last-child { color: #9eabb5; font-size: 16px; }
+.interface-stage { position: relative; isolation: isolate; perspective: 1500px; width: min(1120px, calc(100% - 48px)); height: clamp(380px, 53vw, 590px); margin-inline: auto; }
+.interface-aura { position: absolute; inset: 15% 8% -3%; pointer-events: none; z-index: -1; background: radial-gradient(ellipse at 50% 60%, #35727c25, transparent 66%); filter: blur(22px); }
+.ui-panel { position: absolute; display: block; width: 33%; padding: 0; color: #c5d4de; text-align: left; border: 1px solid #3c515d; border-radius: 15px; background: #0c141a; box-shadow: 0 24px 45px #000b, 0 0 0 1px #bfefff08 inset; overflow: hidden; cursor: zoom-in; transition: transform .55s cubic-bezier(.2,.75,.2,1), box-shadow .4s, border-color .4s; }
+.ui-panel img { width: 100%; height: auto; }
+.window-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 8px 12px; font-size: 10px; background: linear-gradient(#1d2a32,#10191f); border-bottom: 1px solid #31414a; }
+.window-bar i { width: 5px; height: 5px; margin-right: 10px; border-radius: 50%; background: #78959e; box-shadow: 8px 0 #526b75, 16px 0 #364f5b; }
+.window-bar > span:last-child { color: #8bb2c2; }
+.panel-outer-left { left: 0; top: 32%; z-index: 1; transform: rotateY(13deg) rotateZ(-3deg); }
+.panel-inner-left { left: 14%; top: 18%; z-index: 2; transform: rotateY(8deg) rotateZ(-1.5deg); }
+.panel-inner-right { right: 14%; top: 18%; z-index: 2; transform: rotateY(-8deg) rotateZ(1.5deg); }
+.panel-outer-right { right: 0; top: 32%; z-index: 1; transform: rotateY(-13deg) rotateZ(3deg); }
+.ui-panel:hover, .ui-panel:focus-visible { z-index: 8; transform: translateY(-10px) rotateY(0) rotateZ(0) scale(1.04); border-color: #9bd7e9; box-shadow: 0 30px 60px #000d, 0 0 35px #87d9ed22; }
+.ui-phone { display: block; position: absolute; top: 0; left: 50%; z-index: 5; width: 25%; transform: translateX(-50%); padding: 6px; border: 2px solid #c0c4c5; border-radius: 40px; color: inherit; background: linear-gradient(110deg,#7f8589,#d6d9da 12%,#535d64 18%,#080b0c 40%,#798185 88%,#e4e5e5); box-shadow: 0 25px 65px #000c, 0 0 0 1px #ffffff22; cursor: zoom-in; transition: transform .55s, box-shadow .55s; }
+.ui-phone:hover, .ui-phone:focus-visible { transform: translateX(-50%) translateY(-6px); box-shadow: 0 32px 75px #000d, 0 0 45px #77c4df1a; }
+.phone-display { display: block; overflow: hidden; border: 2px solid #040607; border-radius: 32px; background: #080d12; }
+.phone-top { display: grid; place-items: center; height: 30px; }
+.phone-island { display: block; position: relative; width: 33%; height: 16px; border-radius: 20px; background: #000; box-shadow: 0 0 0 1px #111a21; }
+.phone-island::after { content: ""; position: absolute; right: 7px; top: 5px; width: 6px; height: 6px; border-radius: 50%; background: radial-gradient(circle at 35% 35%,#355368,#0a1420 60%); }
+.phone-app-viewport { display: block; aspect-ratio: 864 / 1745; overflow: hidden; }
+.phone-app-viewport img { width: 100%; height: auto; transform: translateY(-3.90625%); }
+.phone-bottom { display: grid; place-items: center; height: 24px; }
+.phone-bottom span { width: 35%; height: 3px; border-radius: 5px; background: #e2e6e9; }
+.phone-button { position: absolute; display: block; width: 3px; background: linear-gradient(#9ba2a6,#41484d); border-radius: 2px; }
+.phone-button-left { left: -4px; top: 21%; height: 12%; }
+.phone-button-right { right: -4px; top: 29%; height: 14%; }
+.interface-caption { text-align: center; color: #c7d3db; font-size: 15px; padding-inline: 16px; margin-top: 14px; }
+.interface-caption span { display: block; font-size: 12px; color: #8597a4; margin-top: 5px; }
+#ui-lightbox { padding: 0; width: min(1120px, calc(100% - 32px)); max-height: 92dvh; border: 1px solid #425662; border-radius: 16px; background: #0c1318; color: #e8f0f5; box-shadow: 0 30px 100px #000b; }
+#ui-lightbox::backdrop { background: #000c; backdrop-filter: blur(8px); }
+.lightbox-toolbar { position: sticky; top: 0; display: flex; align-items: center; justify-content: space-between; padding: 12px 20px; background: #111b23; z-index: 1; border-bottom: 1px solid #2c3e49; }
+.lightbox-toolbar h2 { font-size: 17px; margin: 0; text-align: left; }
+.lightbox-toolbar h2::after { display: none; }
+#ui-lightbox-close { display: grid; place-items: center; width: 40px; height: 40px; color: #d4e5f0; background: #202e38; border: 1px solid #405462; border-radius: 50%; font-size: 27px; cursor: pointer; }
+.lightbox-image { padding: 16px; }
+.lightbox-image img { max-width: 100%; max-height: calc(92dvh - 100px); width: auto; height: auto; margin-inline: auto; object-fit: contain; }
+@media (max-width: 760px) {
+ .interface-stage { width: calc(100% - 32px); height: 55vw; min-height: 345px; }
+ .ui-phone { width: 28%; border-radius: 30px; padding: 4px; }
+ .phone-display { border-radius: 24px; }
+ .phone-top { height: 24px; }
+ .phone-island { height: 12px; }
+ .phone-island::after { top: 4px; right: 5px; width: 4px; height: 4px; }
+ .phone-bottom { height: 18px; }
+ .ui-panel { border-radius: 10px; width: 34%; }
+ .window-bar { font-size: 8px; padding: 6px 8px; gap: 6px; }
+ .window-bar i { display: none; }
+}
+@media (max-width: 520px) {
+ .interface-showcase { padding: 38px 0 40px; }
+ .interface-heading { margin-bottom: 35px; }
+ .interface-heading > p:last-child { font-size: 14px; max-width: 290px; margin-inline: auto; }
+ .interface-stage { width: calc(100% - 20px); height: 77vw; min-height: 270px; max-height: 400px; }
+ .ui-phone { width: 34%; padding: 3px; border-radius: 23px; }
+ .phone-display { border-radius: 17px; border-width: 1px; }
+ .phone-top { height: 18px; }
+ .phone-island { height: 9px; width: 36%; }
+ .phone-island::after { width: 3px; height: 3px; right: 4px; top: 3px; }
+ .phone-bottom { height: 15px; }
+ .phone-bottom span { height: 2px; }
+ .ui-panel { width: 38%; border-radius: 8px; }
+ .panel-inner-left { left: 7%; top: 23%; }
+ .panel-inner-right { right: 7%; top: 23%; }
+ .panel-outer-left, .panel-outer-right { top: 39%; }
+ .window-bar { font-size: 6px; padding: 4px 5px; }
+ .interface-caption { font-size: 13px; margin-top: 0; }
+ .interface-caption span { font-size: 11px; }
+ .lightbox-toolbar { padding: 10px 12px; }
+ .lightbox-toolbar h2 { font-size: 15px; }
+ .lightbox-image { padding: 8px; }
+}
