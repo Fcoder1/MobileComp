@@ -8,7 +8,7 @@
   <meta name="theme-color" content="#050607">
   <meta name="color-scheme" content="dark">
   <link rel="icon" href="mark.svg?v=projection" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css?v=projector-icon-1"><script src="app.js?v=native-video-1" defer></script>
+  <link rel="stylesheet" href="style.css?v=six-captures-1"><script src="app.js?v=six-captures-1" defer></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -98,24 +98,68 @@
   </section>
 
   <section class="band" id="captures" aria-labelledby="captures-title">
-    <div class="wide"><h2 id="captures-title">Camera-Captured Results</h2>
-      <p class="intro">Select a scene and drag the divider to compare the uncompensated and compensated projections. The reference images show the desired frame and the bare surface.</p>
-<div class="viewer reveal">
-  <div class="scene-list"><h3>Choose a scene</h3><div id="scene-buttons" class="scene-buttons" role="group" aria-label="Scene">
-    <button data-scene="textile" aria-pressed="true"><img src="assets/textile-desired.jpg" alt="">Still life <span>01</span></button>
-    <button data-scene="storefront" aria-pressed="false"><img src="assets/storefront-desired.jpg" alt="">Storefront <span>02</span></button>
-    <button data-scene="market" aria-pressed="false"><img src="assets/market-desired.jpg" alt="">Market <span>03</span></button>
-    <button data-scene="interior" aria-pressed="false"><img src="assets/interior-desired.jpg" alt="">Interior <span>04</span></button></div>
-    <div class="choice"><label for="method-choice">Compensation method</label><select id="method-choice"><option value="mobile">MobileComp</option><option value="si">SI-MobileComp</option></select></div>
-  </div>
-  <figure class="comparison"><div class="wipe" id="wipe">
-    <img id="after" class="full" src="assets/textile-mobile.jpg" alt="Still life, compensated camera capture"><img id="before" class="full before" src="assets/textile-before.jpg" alt="Still life, uncompensated camera capture">
-    <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
-    <input type="range" id="split" min="0" max="100" value="50" aria-label="Percentage of uncompensated camera capture visible" aria-valuetext="50 percent uncompensated">
-  </div><figcaption><span>Uncompensated</span><span id="after-caption">MobileComp</span></figcaption></figure>
-  <div class="references"><figure><img id="desired" src="assets/textile-desired.jpg" alt="Desired still life frame"><figcaption>Desired frame</figcaption></figure><figure><img id="surface" src="assets/textile-surface.jpg" alt="Bare projection surface"><figcaption>Projection surface</figcaption></figure></div>
-</div><p id="scene-status" class="sr-only" role="status"></p>
-
+    <div class="captures-wide"><h2 id="captures-title">Camera-Captured Results</h2>
+      <div class="capture-toolbar"><p>Drag each divider: <span>Uncompensated</span> <span aria-hidden="true">↔</span> <strong id="capture-method-label">MobileComp</strong></p><div class="choice"><label for="method-choice">Compensation method</label><select id="method-choice"><option value="mobile">MobileComp</option><option value="si">SI-MobileComp</option></select></div></div>
+      <p class="capture-scroll-hint">Swipe horizontally to explore all six results.</p>
+      <div class="captures-scroll" tabindex="0" role="region" aria-label="Six camera-captured comparisons">
+        <div class="captures-grid reveal">
+      <div class="capture-card" data-capture="textile" data-result="1">
+        <div class="wipe" style="--split: 50%">
+          <img class="full compensated" src="assets/textile-mobile.jpg" alt="Result 1, MobileComp camera capture" loading="lazy" width="256" height="256">
+          <img class="full before" src="assets/textile-before.jpg" alt="Result 1, uncompensated camera capture" loading="lazy" width="256" height="256">
+          <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
+          <input type="range" class="capture-split" min="0" max="100" value="50" aria-label="Result 1: percentage of uncompensated capture visible" aria-valuetext="50 percent uncompensated">
+        </div>
+        <div class="capture-references"><figure><img class="reference-image" src="assets/textile-desired.jpg" alt="Result 1, desired frame" loading="lazy" width="256" height="256"><figcaption>Desired</figcaption></figure><figure><img class="reference-image" src="assets/textile-surface.jpg" alt="Result 1, projection surface" loading="lazy" width="256" height="256"><figcaption>Surface</figcaption></figure></div>
+      </div>
+      <div class="capture-card" data-capture="storefront" data-result="2">
+        <div class="wipe" style="--split: 50%">
+          <img class="full compensated" src="assets/storefront-mobile.jpg" alt="Result 2, MobileComp camera capture" loading="lazy" width="256" height="256">
+          <img class="full before" src="assets/storefront-before.jpg" alt="Result 2, uncompensated camera capture" loading="lazy" width="256" height="256">
+          <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
+          <input type="range" class="capture-split" min="0" max="100" value="50" aria-label="Result 2: percentage of uncompensated capture visible" aria-valuetext="50 percent uncompensated">
+        </div>
+        <div class="capture-references"><figure><img class="reference-image" src="assets/storefront-desired.jpg" alt="Result 2, desired frame" loading="lazy" width="256" height="256"><figcaption>Desired</figcaption></figure><figure><img class="reference-image" src="assets/storefront-surface.jpg" alt="Result 2, projection surface" loading="lazy" width="256" height="256"><figcaption>Surface</figcaption></figure></div>
+      </div>
+      <div class="capture-card" data-capture="market" data-result="3">
+        <div class="wipe" style="--split: 50%">
+          <img class="full compensated" src="assets/market-mobile.jpg" alt="Result 3, MobileComp camera capture" loading="lazy" width="256" height="256">
+          <img class="full before" src="assets/market-before.jpg" alt="Result 3, uncompensated camera capture" loading="lazy" width="256" height="256">
+          <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
+          <input type="range" class="capture-split" min="0" max="100" value="50" aria-label="Result 3: percentage of uncompensated capture visible" aria-valuetext="50 percent uncompensated">
+        </div>
+        <div class="capture-references"><figure><img class="reference-image" src="assets/market-desired.jpg" alt="Result 3, desired frame" loading="lazy" width="256" height="256"><figcaption>Desired</figcaption></figure><figure><img class="reference-image" src="assets/market-surface.jpg" alt="Result 3, projection surface" loading="lazy" width="256" height="256"><figcaption>Surface</figcaption></figure></div>
+      </div>
+      <div class="capture-card" data-capture="interior" data-result="4">
+        <div class="wipe" style="--split: 50%">
+          <img class="full compensated" src="assets/interior-mobile.jpg" alt="Result 4, MobileComp camera capture" loading="lazy" width="256" height="256">
+          <img class="full before" src="assets/interior-before.jpg" alt="Result 4, uncompensated camera capture" loading="lazy" width="256" height="256">
+          <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
+          <input type="range" class="capture-split" min="0" max="100" value="50" aria-label="Result 4: percentage of uncompensated capture visible" aria-valuetext="50 percent uncompensated">
+        </div>
+        <div class="capture-references"><figure><img class="reference-image" src="assets/interior-desired.jpg" alt="Result 4, desired frame" loading="lazy" width="256" height="256"><figcaption>Desired</figcaption></figure><figure><img class="reference-image" src="assets/interior-surface.jpg" alt="Result 4, projection surface" loading="lazy" width="256" height="256"><figcaption>Surface</figcaption></figure></div>
+      </div>
+      <div class="capture-card" data-capture="plants" data-result="5">
+        <div class="wipe" style="--split: 50%">
+          <div class="full compensated capture-sprite" role="img" aria-label="Result 5, MobileComp camera capture" style="--crop-x: -216.82242991%; --crop-y: -26.79127726%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div>
+          <div class="full before capture-sprite" role="img" aria-label="Result 5, uncompensated camera capture" style="--crop-x: -427.10280374%; --crop-y: -26.79127726%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div>
+          <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
+          <input type="range" class="capture-split" min="0" max="100" value="50" aria-label="Result 5: percentage of uncompensated capture visible" aria-valuetext="50 percent uncompensated">
+        </div>
+        <div class="capture-references"><figure><div class="reference-image capture-sprite" role="img" aria-label="Result 5, desired frame" style="--crop-x: -11.52647975%; --crop-y: -26.79127726%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div><figcaption>Desired</figcaption></figure><figure><div class="reference-image capture-sprite" role="img" aria-label="Result 5, projection surface" style="--crop-x: -321.18380062%; --crop-y: -26.79127726%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div><figcaption>Surface</figcaption></figure></div>
+      </div>
+      <div class="capture-card" data-capture="harbor" data-result="6">
+        <div class="wipe" style="--split: 50%">
+          <div class="full compensated capture-sprite" role="img" aria-label="Result 6, MobileComp camera capture" style="--crop-x: -216.82242991%; --crop-y: -129.59501558%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div>
+          <div class="full before capture-sprite" role="img" aria-label="Result 6, uncompensated camera capture" style="--crop-x: -427.10280374%; --crop-y: -129.59501558%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div>
+          <div class="wipe-line"><span aria-hidden="true">‹ ›</span></div>
+          <input type="range" class="capture-split" min="0" max="100" value="50" aria-label="Result 6: percentage of uncompensated capture visible" aria-valuetext="50 percent uncompensated">
+        </div>
+        <div class="capture-references"><figure><div class="reference-image capture-sprite" role="img" aria-label="Result 6, desired frame" style="--crop-x: -11.52647975%; --crop-y: -129.59501558%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div><figcaption>Desired</figcaption></figure><figure><div class="reference-image capture-sprite" role="img" aria-label="Result 6, projection surface" style="--crop-x: -321.18380062%; --crop-y: -129.59501558%"><img src="assets/additional-captures.png" alt="" aria-hidden="true" loading="lazy" width="1744" height="768"></div><figcaption>Surface</figcaption></figure></div>
+      </div>
+        </div>
+      </div>
+      <p id="capture-status" class="sr-only" role="status"></p>
     </div>
   </section>
 

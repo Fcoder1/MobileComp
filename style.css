@@ -216,3 +216,47 @@ html:has(body.reduced-motion) { scroll-behavior: auto; }
 }
 
 .title-projector { position: absolute; right: calc(100% + .45em); top: 50%; width: 1em; height: auto; transform: translateY(-50%); filter: drop-shadow(0 0 5px #8edcff24); pointer-events: none; }
+
+/* Six independent comparisons remain visible together on desktop. */
+.captures-wide { width: min(1500px, calc(100% - 48px)); margin-inline: auto; }
+.capture-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-bottom: 24px; }
+.capture-toolbar p { font-size: 14px; color: #91a4b1; }
+.capture-toolbar p span { color: #c3d0d9; margin-left: 6px; }
+.capture-toolbar p strong { color: #b8efff; font-weight: 500; margin-left: 6px; }
+.capture-toolbar .choice { display: flex; align-items: center; gap: 12px; }
+.capture-toolbar .choice label { margin: 0; font-size: 12px; }
+.captures-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px; }
+.capture-card { min-width: 0; padding: 8px; background: #0c1318; border: 1px solid #2b3943; border-radius: 10px; }
+.capture-card .wipe { border-radius: 5px; }
+.capture-card .wipe-line span { width: 28px; height: 28px; font-size: 16px; color: #eaf6fc; background: #172630e6; border: 1px solid #9dc4d4; }
+.capture-references { display: grid; grid-template-columns: 1fr 1fr; gap: 7px; margin-top: 12px; }
+.capture-references figure { min-width: 0; }
+.capture-references .reference-image { display: block; position: relative; width: 100%; aspect-ratio: 1; height: auto; border-radius: 4px; }
+.capture-references figcaption { padding-top: 5px; text-align: center; font-size: 10px; color: #9bafbc; }
+.capture-sprite { overflow: hidden; background: #000; }
+.capture-sprite > img { position: absolute; width: 543.30218069%; max-width: none; height: auto; left: var(--crop-x); top: var(--crop-y); }
+.capture-scroll-hint { display: none; }
+.captures-scroll { padding: 5px 0; }
+@media (max-width: 1000px) {
+ .captures-wide { width: calc(100% - 32px); }
+ .captures-grid { gap: 7px; }
+ .capture-card { padding: 5px; border-radius: 7px; }
+ .capture-toolbar { gap: 14px; }
+ .capture-toolbar p { font-size: 12px; }
+ .capture-toolbar .choice { gap: 7px; }
+ .capture-toolbar .choice label { font-size: 10px; }
+ .capture-references { gap: 4px; margin-top: 8px; }
+ .capture-references figcaption { font-size: 9px; }
+ .capture-card .wipe-line span { width: 23px; height: 23px; font-size: 14px; }
+}
+@media (max-width: 700px) {
+ .capture-toolbar { align-items: start; flex-direction: column; gap: 14px; margin-bottom: 14px; }
+ .capture-toolbar .choice label { font-size: 12px; }
+ .capture-toolbar p { font-size: 13px; }
+ .captures-scroll { overflow-x: auto; overscroll-behavior-x: contain; padding-bottom: 16px; }
+ .captures-grid { min-width: 1110px; gap: 10px; }
+ .capture-card { padding: 7px; }
+ .capture-references figcaption { font-size: 11px; }
+ .capture-scroll-hint { display: block; margin-bottom: 10px; color: #8c9fab; font-size: 12px; }
+ .capture-card .wipe-line span { width: 28px; height: 28px; font-size: 16px; }
+}

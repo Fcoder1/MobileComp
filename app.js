@@ -1,33 +1,28 @@
-const names = { textile: 'Still life', storefront: 'Storefront', market: 'Market', interior: 'Interior' };
 const methods = { mobile: 'MobileComp', si: 'SI-MobileComp' };
-const buttons = document.querySelectorAll('[data-scene]');
-const select = document.querySelector('#method-choice');
-const slider = document.querySelector('#split');
-let scene = 'textile';
-
-function setImage(id, role, description) {
-  const image = document.getElementById(id);
-  image.src = 'assets/' + scene + '-' + role + '.jpg';
-  image.alt = names[scene] + ' — ' + description;
-}
-function refreshCaptures() {
-  const method = select.value;
-  buttons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.scene === scene)));
-  setImage('after', method, methods[method] + ' camera capture');
-  setImage('before', 'before', 'uncompensated camera capture');
-  setImage('desired', 'desired', 'desired frame');
-  setImage('surface', 'surface', 'bare projection surface');
-  document.getElementById('after-caption').textContent = methods[method];
-  document.getElementById('scene-status').textContent = names[scene] + ', comparing uncompensated capture with ' + methods[method] + '.';
-}
-buttons.forEach(button => button.addEventListener('click', () => {
-  scene = button.dataset.scene;
-  refreshCaptures();
-}));
-select.addEventListener('change', refreshCaptures);
-slider.addEventListener('input', () => {
-  document.getElementById('wipe').style.setProperty('--split', slider.value + '%');
-  slider.setAttribute('aria-valuetext', slider.value + ' percent uncompensated');
+const captureMethod = document.getElementById('method-choice');
+const captureCards = document.querySelectorAll('[data-capture]');
+captureMethod.addEventListener('change', () => {
+  const method = captureMethod.value;
+  captureCards.forEach(card => {
+    const capture = card.querySelector('.compensated');
+    const description = 'Result ' + card.dataset.result + ', ' + methods[method] + ' camera capture';
+    if (capture.classList.contains('capture-sprite')) {
+      const sourceX = method === 'mobile' ? 696 : 370;
+      capture.style.setProperty('--crop-x', (-sourceX / 321 * 100) + '%');
+      capture.setAttribute('aria-label', description);
+    } else {
+      capture.src = 'assets/' + card.dataset.capture + '-' + method + '.jpg';
+      capture.alt = description;
+    }
+  });
+  document.getElementById('capture-method-label').textContent = methods[method];
+  document.getElementById('capture-status').textContent = 'All six comparisons now show ' + methods[method] + '.';
+});
+document.querySelectorAll('.capture-split').forEach(slider => {
+  slider.addEventListener('input', () => {
+    slider.closest('.wipe').style.setProperty('--split', slider.value + '%');
+    slider.setAttribute('aria-valuetext', slider.value + ' percent uncompensated');
+  });
 });
 
 const contents = document.getElementById('contents');
