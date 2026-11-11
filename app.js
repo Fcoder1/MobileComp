@@ -117,15 +117,3 @@ document.querySelectorAll('.reveal').forEach(element => {
     revealObserver.observe(element);
   }
 });
-
-let progressFrame = 0;
-function updateProgress() {
-  const scrollable = document.documentElement.scrollHeight - innerHeight;
-  document.documentElement.style.setProperty('--progress', scrollable > 0 ? Math.min(1, scrollY / scrollable) : 0);
-  progressFrame = 0;
-}
-addEventListener('scroll', () => {
-  if (!progressFrame) progressFrame = requestAnimationFrame(updateProgress);
-}, { passive: true });
-addEventListener('resize', updateProgress);
-updateProgress();
